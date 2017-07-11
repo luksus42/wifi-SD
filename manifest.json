@@ -1,5 +1,5 @@
 {
-    "name" : "wifisd.luksusdebug",
+    "name" : "wifisd.luksus",
     "description" : "Client for Transcend WiFi SD-Cards.",
     "architecture" : "all",
     "title" : "WiFi SD",
