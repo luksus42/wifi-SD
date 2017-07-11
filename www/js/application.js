@@ -1,6 +1,3 @@
-var api = external.getUnityObject('1.0');
-      	var hub = api.ContentHub;
-
 function Application(UIContext) {
     this._uiContextClass = UIContext;
     this._initialized = false;
@@ -63,6 +60,7 @@ Application.prototype.init = function() {
         });
 
 
+        initFolders(UI);
 
     }
 };
@@ -202,41 +200,12 @@ function getThumbnails(UI, files, url) {
                     });
                 }
 
-                UI.button("download").click(function () {
-
-	            });
-
-				UI.button("share").click(function () {
-					share({
-						"src": prevImg.src,
-						"name": e.srcElement.id
-					});
-	            });
-
-	            UI.pagestack.push("preview");
-	        });
+                UI.pagestack.push("preview");
+            });
 
             doc.appendChild(imgContainer);
         }
    }
-}
-
-function share(item) {
-	var api = external.getUnityObject(1.0);
-	var hub = api.ContentHub;
-
-	var transferState = hub.ContentTransfer.State;
-
-	function _shareRequested(transfer) {
-		var url = item.src;
-
-		transfer.setItems([{name: item.name, url: url}],
-			function() {
-	 			transfer.setState(hub.ContentTransfer.State.Charged);
-			});
-	};
-
-	hub.onExportRequested(_exportRequested);
 }
 
 function openInfoDialog(UI, infoText) {
