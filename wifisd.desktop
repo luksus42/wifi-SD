@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=WiFi SD
+Exec=webapp-container --inspector ./www/index.html
+Icon=wifisd.png
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+

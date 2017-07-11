@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>An Ubuntu HTML5 application</title>
+    <meta name="description" content="An Ubuntu HTML5 application">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+    <!--
+         Application stylesheets
+         Include your own stylesheets below to style your application.
+      -->
+    <link rel="stylesheet" href="css/app.css" type="text/css" />
+
+    <!--
+        Ubuntu UI javascript imports - Ambiance theme
+        Ubuntu provides building blocks that you can use in your application. For more information, you can check out the documentation at http://design.ubuntu.com/apps.
+     -->
+    <!-- Ubuntu UI Style imports - Ambiance theme -->
+    <link href="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/css/appTemplate.css" rel="stylesheet" type="text/css" />
+
+    <script src="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/js/fast-buttons.js"></script>
+    <script src="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/js/core.js"></script>
+    <script src="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/js/buttons.js"></script>
+    <script src="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/js/dialogs.js"></script>
+    <script src="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/js/page.js"></script>
+    <script src="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/js/pagestacks.js"></script>
+    <script src="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/js/tab.js"></script>
+    <script src="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/js/tabs.js"></script>
+    <script src="/usr/share/ubuntu-html5-ui-toolkit/0.1/ambiance/js/list.js"></script>
+
+
+    <!-- External javascript imports -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/exif.js"></script>
+</head>
+<body>
+
+    <div data-role="mainview">
+
+        <header data-role="header">
+
+        </header>
+
+        <div data-role="content">
+            <div data-role="pagestack" id="root">
+                <div data-role="page" id="folders" data-title="Folder">
+
+                    <section data-role="list" id="folderlist">
+                        <ul>
+                        </ul>
+                    </section>
+                    <footer data-role="footer" id="toolbar" class="revealed">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="#" id="refreshFolders">
+                                        <img src="/usr/share/icons/ubuntu-mobile/actions/scalable/reload.svg" alt="no pic"/>
+                                        <span>Refresh</span>
+                                    </a>
+                                </li>
+                                <li data-role="tabitem" data-page="settingsTab">
+                                    <a href="#" id="settingsBtn">
+                                        <img src="/usr/share/icons/ubuntu-mobile/actions/scalable/settings.svg" alt="no pic"/>
+                                        <span>Settings</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </footer>
+                </div>
+                <div data-role="page" id="gallery" data-title="Gallery">
+
+                    <footer data-role="footer" id="toolbar" class="revealed">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="#" id="refreshGallery">
+                                        <img src="/usr/share/icons/ubuntu-mobile/actions/scalable/reload.svg" alt="no pic"/>
+                                        <span>Refresh</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </footer>
+                </div>
+
+                <div data-role="page" id="preview" data-title="Preview">
+                    <footer data-role="footer" id="settingsToolbar" class="revealed">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="#" id="download">
+                                        <img src="/usr/share/icons/ubuntu-mobile/actions/scalable/save.svg" alt="no pic"/>
+                                        <span>Download</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" id="share">
+                                        <img src="/usr/share/icons/ubuntu-mobile/actions/scalable/share.svg" alt="no pic"/>
+                                        <span>Share</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </footer>
+
+                    <img src="" id="previewImage"/>
+                    <button data-role="button" id="showExif">show EXIF data</button>
+                    <div id="exif"></div>
+                </div>
+
+                <div data-role="dialog" id="infoDialog">
+                    <section>
+                        <p id="infoDialogText"><p/>
+                        </br>
+                        <p id="errorServer"></p>
+                        </br>
+                        <button data-role="button" id="closeDialog">close</button>
+                    </section>
+                </div>
+
+                <div data-role="page" id="settings" data-title="Settings">
+
+                    <footer data-role="footer" id="settingsToolbar" class="revealed">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="#" id="save">
+                                        <img src="/usr/share/icons/ubuntu-mobile/actions/scalable/save.svg" alt="no pic"/>
+                                        <span>Save</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </footer>
+
+                    <div class="pageContainer">
+                        <div class="settingGroup">
+                            <h2>Server IP:</h2>
+                           
+                            <p id="local_connection" style="margin: 15px 0;display:block">
+                                <input type="url" id="serverUrl" placeholder="IP" style="width:120px">
+                            </p>
+                            
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="js/application.js"></script>
+    <script src="js/ui.js"></script>
+</body>
+</html>
+
